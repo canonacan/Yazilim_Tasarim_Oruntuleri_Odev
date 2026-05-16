@@ -16,9 +16,9 @@ public class OyunNesnesi {
 
     public void bilgiGoster() {
 
-        System.out.println("Tur:" + tur);
-        System.out.println("Can:" + can);
-        System.out.println("Hasar:" + hasar);
+        System.out.println("Tur: " + tur);
+        System.out.println("Can: " + can);
+        System.out.println("Hasar: " + hasar);
 
     }
 
