@@ -1,0 +1,11 @@
+# Java derleme dosyalari
+*.class
+
+# VS Code ayarlari
+.vscode/
+
+# Build klasoru
+bin/
+
+# Log dosyalari
+*.log
