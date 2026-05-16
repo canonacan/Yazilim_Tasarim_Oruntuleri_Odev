@@ -22,7 +22,7 @@ public class KarakterFabrikasi {
 
         }
 
-        return null;
+        throw new IllegalArgumentException("Gecersiz karakter turu!");
 
     }
 
