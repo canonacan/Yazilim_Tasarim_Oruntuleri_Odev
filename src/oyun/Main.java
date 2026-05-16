@@ -4,9 +4,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        OyunNesnesi oyuncu = new OyunNesnesi("oyuncu", 100, 20);
+        OyunNesnesi oyuncu =
+        KarakterFabrikasi.olusturKarakter("oyuncu");
 
-        OyunNesnesi goblin = new OyunNesnesi("goblin", 50, 10);
+        OyunNesnesi goblin =
+        KarakterFabrikasi.olusturKarakter("goblin");
 
         oyuncu.bilgiGoster();
         oyuncu.saldir();
