@@ -2,46 +2,35 @@ package oyun;
 
 public class OyunNesnesi {
 
-    String tur;
-    int can;
-    int hasar;
+    private String tur;
+    private int can;
+    private int hasar;
+
+    private SaldiriStratejisi saldiriStratejisi;
 
     public OyunNesnesi(String tur, int can, int hasar) {
-
         this.tur = tur;
         this.can = can;
         this.hasar = hasar;
+    }
 
+    public void setSaldiriStratejisi(SaldiriStratejisi saldiriStratejisi) {
+        this.saldiriStratejisi = saldiriStratejisi;
     }
 
     public void bilgiGoster() {
-
         System.out.println("Tur: " + tur);
         System.out.println("Can: " + can);
         System.out.println("Hasar: " + hasar);
-
     }
 
     public void saldir() {
 
-        if(tur.equals("oyuncu")) {
-
-            System.out.println("Oyuncu kilic ile saldirdi!");
-
+        if (saldiriStratejisi != null) {
+            saldiriStratejisi.saldir(tur);
         }
-
-        else if(tur.equals("goblin")) {
-
-            System.out.println("Goblin hançer ile saldirdi!");
-
+        else {
+            System.out.println("Saldiri stratejisi bulunamadi!");
         }
-
-        else if(tur.equals("ork")) {
-
-            System.out.println("Ork balta ile saldirdi!");
-
-        }
-
     }
-
 }
