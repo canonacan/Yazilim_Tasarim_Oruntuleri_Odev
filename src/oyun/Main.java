@@ -4,13 +4,24 @@ public class Main {
 
     public static void main(String[] args) {
 
-        OyunNesnesi oyuncu = KarakterFabrikasi.olusturKarakter("oyuncu");
+        SavasLoglayici log =
+                new SavasLoglayici();
 
-        oyuncu.setSaldiriStratejisi(new KilicSaldirisi());
+        OyunNesnesi oyuncu =
+                KarakterFabrikasi.olusturKarakter("oyuncu");
 
-        OyunNesnesi goblin = KarakterFabrikasi.olusturKarakter("goblin");
+        oyuncu.setSaldiriStratejisi(
+                new KilicSaldirisi());
 
-        goblin.setSaldiriStratejisi(new OkSaldirisi());
+        oyuncu.gozlemciEkle(log);
+
+        OyunNesnesi goblin =
+                KarakterFabrikasi.olusturKarakter("goblin");
+
+        goblin.setSaldiriStratejisi(
+                new OkSaldirisi());
+
+        goblin.gozlemciEkle(log);
 
         oyuncu.bilgiGoster();
         oyuncu.saldir();
