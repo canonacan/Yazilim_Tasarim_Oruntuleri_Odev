@@ -1,17 +1,40 @@
 package oyun;
 
+import java.util.ArrayList;
+
 public class OyunNesnesi {
 
-    String tur;
-    int can;
-    int hasar;
+    private String tur;
+    private int can;
+    private int hasar;
+
+    private SaldiriStratejisi saldiriStratejisi;
+
+    private ArrayList<Gozlemci> gozlemciler =new ArrayList<>();
 
     public OyunNesnesi(String tur, int can, int hasar) {
 
         this.tur = tur;
         this.can = can;
         this.hasar = hasar;
+    }
 
+    public void setSaldiriStratejisi(SaldiriStratejisi saldiriStratejisi) {
+
+        this.saldiriStratejisi = saldiriStratejisi;
+    }
+
+    public void gozlemciEkle(Gozlemci gozlemci) {
+
+        gozlemciler.add(gozlemci);
+    }
+
+    public void bildirimGonder(String mesaj) {
+
+        for (Gozlemci gozlemci : gozlemciler) {
+
+            gozlemci.guncelle(mesaj);
+        }
     }
 
     public void bilgiGoster() {
@@ -19,29 +42,19 @@ public class OyunNesnesi {
         System.out.println("Tur: " + tur);
         System.out.println("Can: " + can);
         System.out.println("Hasar: " + hasar);
-
     }
 
     public void saldir() {
 
-        if(tur.equals("oyuncu")) {
+        if (saldiriStratejisi != null) {
 
-            System.out.println("Oyuncu kilic ile saldirdi!");
+            saldiriStratejisi.saldir(tur);
 
+            bildirimGonder(tur + " saldiri yapti");
         }
+        else {
 
-        else if(tur.equals("goblin")) {
-
-            System.out.println("Goblin hançer ile saldirdi!");
-
+            System.out.println("Saldiri stratejisi bulunamadi!");
         }
-
-        else if(tur.equals("ork")) {
-
-            System.out.println("Ork balta ile saldirdi!");
-
-        }
-
     }
-
 }

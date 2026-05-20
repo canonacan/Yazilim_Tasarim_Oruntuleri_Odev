@@ -452,3 +452,180 @@ Böylece:
 - yeni özellik eklemek kolaylaşmış
 - mevcut kod kırılmadan geliştirme yapılabilmiş
 - bağımlılıklar azaltılmıştır.
+
+
+
+---
+
+# Faz 3 - Behavioral Patterns
+
+## Kullanılan Tasarım Örüntüleri
+
+- Strategy Pattern
+- Observer Pattern
+
+---
+
+# Faz 3 - Strategy Pattern
+
+## Nerede Kullanıldı
+
+Strategy Pattern, farklı saldırı davranışlarını dinamik şekilde değiştirebilmek için kullanıldı.
+
+Bu amaçla:
+
+```java
+SaldiriStratejisi
+```
+
+arayüzü oluşturuldu.
+
+Ayrıca:
+
+- KilicSaldirisi
+- OkSaldirisi
+- BuyuSaldirisi
+
+sınıfları geliştirildi.
+
+---
+
+## Neden Kullanıldı
+
+Başlangıçta tüm saldırı davranışları tek yapı içerisindeydi.
+
+Bu durum:
+
+- if-else karmaşasına
+- genişletme zorluğuna
+- Open Closed Principle ihlaline
+
+neden olmaktaydı.
+
+Strategy Pattern ile saldırı davranışları birbirinden ayrıldı.
+
+---
+
+## Kazanımlar
+
+Strategy Pattern kullanılması ile:
+
+- saldırı davranışları değiştirilebilir hale geldi
+- yeni saldırılar kolay eklenebilir oldu
+- Open Closed Principle uygulandı
+- sistem daha modüler hale geldi
+
+---
+
+## Önceki Yapı
+
+```text
+OyunNesnesi
+ └── saldir()
+```
+
+---
+
+## Sonraki Yapı
+
+```text
+OyunNesnesi
+ └── SaldiriStratejisi
+        ├── KilicSaldirisi
+        ├── OkSaldirisi
+        └── BuyuSaldirisi
+```
+
+---
+
+# Faz 3 - Observer Pattern
+
+## Nerede Kullanıldı
+
+Observer Pattern, savaş sırasında oluşan olayları log sistemine bildirmek için kullanıldı.
+
+Bu amaçla:
+
+```java
+Gozlemci
+```
+
+arayüzü oluşturuldu.
+
+Ayrıca:
+
+```java
+SavasLoglayici
+```
+
+sınıfı geliştirildi.
+
+---
+
+## Neden Kullanıldı
+
+Savaş olaylarını doğrudan log sistemine bağlamak yüksek bağımlılık oluşturmaktaydı.
+
+Bu durum:
+
+- sistem esnekliğini azaltıyordu
+- yeni gözlemci eklemeyi zorlaştırıyordu
+
+Observer Pattern ile olay sistemi gevşek bağlı hale getirildi.
+
+---
+
+## Kazanımlar
+
+Observer Pattern kullanılması ile:
+
+- log sistemi merkezi hale geldi
+- olay tabanlı yapı oluşturuldu
+- bağımlılıklar azaltıldı
+- yeni gözlemciler kolay eklenebilir hale geldi
+
+---
+
+## Önceki Yapı
+
+```text
+OyunNesnesi
+ └── doğrudan log sistemi
+```
+
+---
+
+## Sonraki Yapı
+
+```text
+OyunNesnesi
+ └── Gozlemci
+        └── SavasLoglayici
+```
+
+---
+
+# Faz 3 UML Diyagramı
+
+```text
+                 +------------------+
+                 |   OyunNesnesi    |
+                 +------------------+
+                           |
+        ---------------------------------------
+        |                                     |
+ uses Strategy                     notifies Observer
+        |                                     |
+        v                                     v
+
++-------------------+            +-------------------+
+| SaldiriStratejisi |            |     Gozlemci      |
++-------------------+            +-------------------+
+        ^                                     ^
+        |                                     |
+ -------------------                -------------------
+ |        |       |                |                 |
+ v        v       v                v                 v
+
+Kilic   Ok     Buyu         SavasLoglayici
+```
