@@ -1,3 +1,20 @@
+# Seçilen Konu: C — Mini Oyun Motoru
+
+Bu projede “Mini Oyun Motoru” konusu seçilmiştir.
+
+Bu konu; farklı karakter davranışları, saldırı sistemleri ve olay yönetimlerini içerdiği için tasarım örüntülerinin uygulanmasına uygun bir yapı sunmaktadır.
+
+Özellikle:
+- Creational Pattern,
+- Structural Pattern,
+- Behavioral Pattern,
+- SOLID prensipleri,
+- Open Closed Principle (OCP)
+
+gibi yazılım mimarisi kavramlarının gerçekçi bir senaryo üzerinde uygulanmasına olanak sağlamıştır.
+
+---
+
 # Yazılım Tasarım Örüntüleri Ödevi
 
 Bu proje, Yazılım Tasarım Örüntüleri dersi kapsamında geliştirilmiş örnek bir savaş sistemi simülasyonudur.
@@ -215,6 +232,8 @@ AI yalnızca:
 - Dokümantasyon desteği
 
 amaçlı kullanılmıştır.
+
+Phase 3 sürecinde AI ile pair programming yaklaşımı uygulanmış ve mimari geliştirmeler birlikte değerlendirilmiştir.
 
 ---
 
