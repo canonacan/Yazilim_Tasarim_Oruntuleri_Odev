@@ -4,20 +4,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        OyunNesnesi oyuncu =
-        KarakterFabrikasi.olusturKarakter("oyuncu");
+        OyunFacade oyun = new OyunFacade();
 
-        OyunNesnesi goblin =
-        KarakterFabrikasi.olusturKarakter("goblin");
+        oyun.karakteriCalistir("oyuncu", 100, 20);
 
-        oyuncu.bilgiGoster();
-        oyuncu.saldir();
-
-        System.out.println();
-
-        goblin.bilgiGoster();
-        goblin.saldir();
-
+        oyun.karakteriCalistir("goblin", 50, 10);
     }
-
 }
